@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blush & Bone — Hair & Skin Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Blush <span>&</span> Bone</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="locations.html">Locations</a>
+      <a href="stylists.html">Stylists</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="nav-cta">
+      <a href="book.html" class="btn primary">Book now</a>
+      <button class="menu-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <div class="eyebrow hero-tag">Three cities, one chair philosophy</div>
+        <h1>Softness, <em>held</em><br>to a standard.</h1>
+        <p class="hero-sub">Blush & Bone is a hair and skin studio built on precise cuts, unhurried color, and rooms that feel like the good part of your morning.</p>
+        <div class="hero-actions">
+          <a href="book.html" class="btn primary">Reserve a chair</a>
+          <a href="locations.html" class="btn">Find your studio</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <div class="stamp-note">Choose a studio</div>
+        <div class="switcher"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h2>What we do with our hands.</h2>
+        </div>
+        <p>A short list — see the full menu and pricing on the services page.</p>
+      </div>
+      <div class="service-grid reveal">
+        <div class="service-card">
+          <span class="tag">Cut</span>
+          <div class="row"><h3>Signature Cut</h3><span class="price">$95</span></div>
+          <p>A consultation-led cut, finished with a blow-dry that actually holds up on day three.</p>
+        </div>
+        <div class="service-card">
+          <span class="tag">Color</span>
+          <div class="row"><h3>Dimensional Color</h3><span class="price">from $180</span></div>
+          <p>Hand-painted color built in low-lights and high-lights, never a flat single tone.</p>
+        </div>
+        <div class="service-card">
+          <span class="tag">Treatment</span>
+          <div class="row"><h3>Scalp & Bond Repair</h3><span class="price">$70</span></div>
+          <p>A slow, pressure-point scalp massage paired with a bond-rebuilding mask.</p>
+        </div>
+        <div class="service-card">
+          <span class="tag">Skin</span>
+          <div class="row"><h3>Studio Facial</h3><span class="price">$120</span></div>
+          <p>A straightforward, results-first facial — no upsells, just skin that behaves.</p>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="services.html" class="btn">See full menu</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Locations</div>
+          <h2>Three studios, same standard.</h2>
+        </div>
+        <p>Tap a seal above to preview a studio, then head to the locations page for full details.</p>
+      </div>
+      <div class="location-detail reveal">
+        <div class="loc-photo">
+          <img id="locImg" src="" alt="Studio interior">
+        </div>
+        <div class="loc-info">
+          <h3 id="locName"></h3>
+          <div class="addr" id="locAddr"></div>
+          <p class="loc-desc" id="locDesc"></p>
+          <a href="locations.html" class="btn primary">View all studios</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonial">
+    <div class="wrap">
+      <div class="testimonial-wrap reveal">
+        <div class="t-quote" id="tQuote"></div>
+        <div class="t-meta"><span id="tName"></span><span>—</span><span id="tLoc"></span></div>
+        <div class="t-dots" id="tDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="booking reveal">
+        <div class="eyebrow" style="margin-bottom:18px;">Booking</div>
+        <h2>Your chair is three taps away.</h2>
+        <p>Choose a studio, a service, and a time. No account required, no phone tag.</p>
+        <a href="book.html" class="btn primary">Start booking</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Blush <span>&</span> Bone</a>
+        <p style="margin-top:16px; max-width:280px;">A hair and skin studio in three cities. Softness, held to a standard.</p>
+      </div>
+      <div>
+        <h4>Studios</h4>
+        <a href="locations.html?loc=elm">Elm Quarter</a>
+        <a href="locations.html?loc=harbor">Harbor Row</a>
+        <a href="locations.html?loc=foothill">Foothill</a>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="services.html">Services</a>
+        <a href="stylists.html">Stylists</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blush & Bone Studio Co.</span>
+      <span>Elm Quarter · Harbor Row · Foothill</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

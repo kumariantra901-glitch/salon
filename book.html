@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book — Blush & Bone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Blush <span>&</span> Bone</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="locations.html">Locations</a>
+      <a href="stylists.html">Stylists</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="nav-cta">
+      <a href="book.html" class="btn primary">Book now</a>
+      <button class="menu-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero" style="border-bottom:none; padding-bottom:0;">
+    <div class="wrap">
+      <div class="eyebrow">Booking</div>
+      <h1>Your chair is three taps away.</h1>
+      <p>Fill this out and a studio coordinator will confirm your exact time within one business day.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:40px;">
+    <div class="wrap">
+      <div class="booking reveal">
+        <div class="steps">
+          <div class="step active">1 · Studio</div>
+          <div class="step">2 · Service</div>
+          <div class="step">3 · Stylist</div>
+          <div class="step">4 · Time</div>
+        </div>
+
+        <form class="book-form" onsubmit="event.preventDefault(); alert('This is a design preview — connect a booking system to make this live.');">
+          <div>
+            <label for="bookLocationSelect">Studio</label>
+            <select id="bookLocationSelect"></select>
+          </div>
+          <div>
+            <label for="bookService">Service</label>
+            <select id="bookService">
+              <option>Signature Cut — $95</option>
+              <option>Dimensional Color — from $180</option>
+              <option>Scalp & Bond Repair — $70</option>
+              <option>Studio Facial — $120</option>
+              <option>Bridal Trial + Day-of — from $350</option>
+              <option>First Cuts (12 & under) — $45</option>
+            </select>
+          </div>
+          <div>
+            <label for="bookName">Name</label>
+            <input type="text" id="bookName" placeholder="Your name" required>
+          </div>
+          <div>
+            <label for="bookEmail">Email</label>
+            <input type="email" id="bookEmail" placeholder="you@email.com" required>
+          </div>
+          <div>
+            <label for="bookDate">Preferred date</label>
+            <input type="date" id="bookDate">
+          </div>
+          <button type="submit" class="btn primary" style="justify-content:center; margin-top:8px;">Request appointment</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Blush <span>&</span> Bone</a>
+        <p style="margin-top:16px; max-width:280px;">A hair and skin studio in three cities. Softness, held to a standard.</p>
+      </div>
+      <div>
+        <h4>Studios</h4>
+        <a href="locations.html?loc=elm">Elm Quarter</a>
+        <a href="locations.html?loc=harbor">Harbor Row</a>
+        <a href="locations.html?loc=foothill">Foothill</a>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="services.html">Services</a>
+        <a href="stylists.html">Stylists</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blush & Bone Studio Co.</span>
+      <span>Elm Quarter · Harbor Row · Foothill</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
