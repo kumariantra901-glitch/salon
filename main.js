@@ -31,14 +31,23 @@ function renderLocationDetail(){
   const el = document.getElementById('locName');
   if (!el) return;
   const loc = LOCATIONS.find(l => l.id === getActiveLocId());
-  document.getElementById('locImg').src = loc.img;
-  document.getElementById('locName').textContent = loc.name;
-  document.getElementById('locAddr').textContent = loc.addr;
-  document.getElementById('locHours').textContent = loc.hours;
-  document.getElementById('locChairs').textContent = loc.chairs;
-  document.getElementById('locParking').textContent = loc.parking;
-  document.getElementById('locYear').textContent = loc.year;
-  document.getElementById('locDesc').textContent = loc.desc;
+
+  const setText = (id, value) => {
+    const node = document.getElementById(id);
+    if (node) node.textContent = value;
+  };
+
+  const img = document.getElementById('locImg');
+  if (img) img.src = loc.img;
+
+  setText('locName', loc.name);
+  setText('locAddr', loc.addr);
+  setText('locHours', loc.hours);
+  setText('locChairs', loc.chairs);
+  setText('locParking', loc.parking);
+  setText('locYear', loc.year);
+  setText('locDesc', loc.desc);
+
   const bookLink = document.getElementById('locBookLink');
   if (bookLink) bookLink.href = switcherHref(loc.id).replace(/^.*\/(locations\.html)?/, 'book.html?loc=' + loc.id);
 }
