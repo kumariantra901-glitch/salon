@@ -26,6 +26,15 @@ function buildSwitchers(){
   });
 }
 
+// Fills in the hero photo on index.html to match the active studio
+function renderHeroPhoto(){
+  const img = document.getElementById('heroPhoto');
+  if (!img) return;
+  const loc = LOCATIONS.find(l => l.id === getActiveLocId());
+  img.src = loc.img;
+  img.alt = loc.name;
+}
+
 // Fills in location-detail fields if present on the page (locations.html)
 function renderLocationDetail(){
   const el = document.getElementById('locName');
@@ -142,6 +151,7 @@ function setupMobileMenu(){
 
 document.addEventListener('DOMContentLoaded', () => {
   buildSwitchers();
+  renderHeroPhoto();
   renderLocationDetail();
   renderStylists();
   renderTestimonial();
