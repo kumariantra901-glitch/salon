@@ -1,162 +1,172 @@
-// ---- active location comes from the URL (?loc=elm) so it carries across pages ----
-function getActiveLocId(){
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('loc');
-  return LOCATIONS.some(l => l.id === id) ? id : LOCATIONS[0].id;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blush & Bone — Hair & Skin Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function switcherHref(id){
-  const url = new URL(window.location.href);
-  url.searchParams.set('loc', id);
-  return url.pathname + url.search;
-}
+<header>
+  <nav>
+    <a href="index.html" class="logo">Blush <span>&</span> Bone</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="locations.html">Locations</a>
+      <a href="stylists.html">Stylists</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="nav-cta">
+      <a href="book.html" class="btn primary">Book now</a>
+      <button class="menu-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
 
-// Renders every element with class="switcher" on the page as a row of seals
-function buildSwitchers(){
-  const activeId = getActiveLocId();
-  document.querySelectorAll('.switcher').forEach(el => {
-    el.innerHTML = '';
-    LOCATIONS.forEach(loc => {
-      const seal = document.createElement('a');
-      seal.className = 'seal' + (loc.id === activeId ? ' active' : '');
-      seal.href = switcherHref(loc.id);
-      seal.innerHTML = `<span class="seal-city">${loc.city}</span><span class="seal-dot"></span>`;
-      el.appendChild(seal);
-    });
-  });
-}
+<main>
 
-// Fills in the hero photo on index.html to match the active studio
-function renderHeroPhoto(){
-  const img = document.getElementById('heroPhoto');
-  if (!img) return;
-  const loc = LOCATIONS.find(l => l.id === getActiveLocId());
-  img.src = loc.img;
-  img.alt = loc.name;
-}
+  <section class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <div class="eyebrow hero-tag">Three cities, one chair philosophy</div>
+        <h1>Softness, <em>held</em><br>to a standard.</h1>
+        <p class="hero-sub">Blush & Bone is a hair and skin studio built on precise cuts, unhurried color, and rooms that feel like the good part of your morning.</p>
+        <div class="hero-actions">
+          <a href="book.html" class="btn primary">Reserve a chair</a>
+          <a href="locations.html" class="btn">Find your studio</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <div class="hero-photo"><img id="heroPhoto" src="" alt="Studio interior"></div>
+        <div class="stamp-note">Choose a studio</div>
+        <div class="switcher"></div>
+      </div>
+    </div>
+  </section>
 
-// Fills in location-detail fields if present on the page (locations.html)
-function renderLocationDetail(){
-  const el = document.getElementById('locName');
-  if (!el) return;
-  const loc = LOCATIONS.find(l => l.id === getActiveLocId());
+  <section class="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h2>What we do with our hands.</h2>
+        </div>
+        <p>A short list — see the full menu and pricing on the services page.</p>
+      </div>
+      <div class="service-grid reveal">
+        <div class="service-card">
+          <span class="tag">Cut</span>
+          <div class="row"><h3>Signature Cut</h3><span class="price">$95</span></div>
+          <p>A consultation-led cut, finished with a blow-dry that actually holds up on day three.</p>
+        </div>
+        <div class="service-card">
+          <span class="tag">Color</span>
+          <div class="row"><h3>Dimensional Color</h3><span class="price">from $180</span></div>
+          <p>Hand-painted color built in low-lights and high-lights, never a flat single tone.</p>
+        </div>
+        <div class="service-card">
+          <span class="tag">Treatment</span>
+          <div class="row"><h3>Scalp & Bond Repair</h3><span class="price">$70</span></div>
+          <p>A slow, pressure-point scalp massage paired with a bond-rebuilding mask.</p>
+        </div>
+        <div class="service-card">
+          <span class="tag">Skin</span>
+          <div class="row"><h3>Studio Facial</h3><span class="price">$120</span></div>
+          <p>A straightforward, results-first facial — no upsells, just skin that behaves.</p>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="services.html" class="btn">See full menu</a>
+      </div>
+    </div>
+  </section>
 
-  const setText = (id, value) => {
-    const node = document.getElementById(id);
-    if (node) node.textContent = value;
-  };
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Locations</div>
+          <h2>Three studios, same standard.</h2>
+        </div>
+        <p>Tap a seal above to preview a studio, then head to the locations page for full details.</p>
+      </div>
+      <div class="location-detail reveal">
+        <div class="loc-photo">
+          <img id="locImg" src="" alt="Studio interior">
+        </div>
+        <div class="loc-info">
+          <h3 id="locName"></h3>
+          <div class="addr" id="locAddr"></div>
+          <p class="loc-desc" id="locDesc"></p>
+          <a href="locations.html" class="btn primary">View all studios</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  const img = document.getElementById('locImg');
-  if (img) img.src = loc.img;
+  <section id="testimonial">
+    <div class="wrap">
+      <div class="testimonial-wrap reveal">
+        <div class="t-quote" id="tQuote"></div>
+        <div class="t-meta"><span id="tName"></span><span>—</span><span id="tLoc"></span></div>
+        <div class="t-dots" id="tDots"></div>
+      </div>
+    </div>
+  </section>
 
-  setText('locName', loc.name);
-  setText('locAddr', loc.addr);
-  setText('locHours', loc.hours);
-  setText('locChairs', loc.chairs);
-  setText('locParking', loc.parking);
-  setText('locYear', loc.year);
-  setText('locDesc', loc.desc);
+  <section>
+    <div class="wrap">
+      <div class="booking reveal">
+        <div class="eyebrow" style="margin-bottom:18px;">Booking</div>
+        <h2>Your chair is three taps away.</h2>
+        <p>Choose a studio, a service, and a time. No account required, no phone tag.</p>
+        <a href="book.html" class="btn primary">Start booking</a>
+      </div>
+    </div>
+  </section>
 
-  const bookLink = document.getElementById('locBookLink');
-  if (bookLink) bookLink.href = switcherHref(loc.id).replace(/^.*\/(locations\.html)?/, 'book.html?loc=' + loc.id);
-}
+</main>
 
-// Fills in the stylist grid if present (stylists.html)
-function renderStylists(){
-  const grid = document.getElementById('stylistGrid');
-  if (!grid) return;
-  const loc = LOCATIONS.find(l => l.id === getActiveLocId());
-  const heading = document.getElementById('stylistHeading');
-  if (heading) heading.textContent = `Who's at ${loc.city}.`;
-  grid.innerHTML = '';
-  loc.stylists.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'stylist-card';
-    card.innerHTML = `
-      <div class="stylist-photo"><img src="${s.img}" alt="${s.name}"></div>
-      <h4>${s.name}</h4>
-      <div class="role">${s.role}</div>`;
-    grid.appendChild(card);
-  });
-}
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Blush <span>&</span> Bone</a>
+        <p style="margin-top:16px; max-width:280px;">A hair and skin studio in three cities. Softness, held to a standard.</p>
+      </div>
+      <div>
+        <h4>Studios</h4>
+        <a href="locations.html?loc=elm">Elm Quarter</a>
+        <a href="locations.html?loc=harbor">Harbor Row</a>
+        <a href="locations.html?loc=foothill">Foothill</a>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="services.html">Services</a>
+        <a href="stylists.html">Stylists</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blush & Bone Studio Co.</span>
+      <span>Elm Quarter · Harbor Row · Foothill</span>
+    </div>
+  </div>
+</footer>
 
-// Fills in the testimonial block if present (index.html)
-function renderTestimonial(){
-  const q = document.getElementById('tQuote');
-  if (!q) return;
-  const activeId = getActiveLocId();
-  const loc = LOCATIONS.find(l => l.id === activeId);
-  q.textContent = `"${loc.quote}"`;
-  document.getElementById('tName').textContent = loc.client;
-  document.getElementById('tLoc').textContent = loc.city;
-  const dots = document.getElementById('tDots');
-  dots.innerHTML = '';
-  LOCATIONS.forEach(l => {
-    const d = document.createElement('a');
-    d.href = switcherHref(l.id) + '#testimonial';
-    d.className = l.id === activeId ? 'active' : '';
-    dots.appendChild(d);
-  });
-}
-
-// Populates a <select id="bookLocationSelect"> if present (book.html)
-function renderBookingForm(){
-  const select = document.getElementById('bookLocationSelect');
-  if (!select) return;
-  const activeId = getActiveLocId();
-  select.innerHTML = '';
-  LOCATIONS.forEach(l => {
-    const opt = document.createElement('option');
-    opt.value = l.id;
-    opt.textContent = l.city;
-    if (l.id === activeId) opt.selected = true;
-    select.appendChild(opt);
-  });
-}
-
-function highlightCurrentNav(){
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href').split('?')[0];
-    if (href === path) a.classList.add('current');
-  });
-}
-
-function setupRevealObserver(){
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('in');
-    });
-  }, {threshold: 0.15});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-
-function setupMobileMenu(){
-  const toggle = document.querySelector('.menu-toggle');
-  const links = document.querySelector('.nav-links');
-  if (!toggle || !links) return;
-  toggle.addEventListener('click', () => {
-    const isOpen = links.style.display === 'flex';
-    links.style.display = isOpen ? 'none' : 'flex';
-    links.style.flexDirection = 'column';
-    links.style.position = 'absolute';
-    links.style.top = '64px';
-    links.style.left = '0';
-    links.style.right = '0';
-    links.style.background = 'var(--bg)';
-    links.style.padding = '24px 32px';
-    links.style.borderBottom = '1px solid var(--line)';
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  buildSwitchers();
-  renderHeroPhoto();
-  renderLocationDetail();
-  renderStylists();
-  renderTestimonial();
-  renderBookingForm();
-  highlightCurrentNav();
-  setupRevealObserver();
-  setupMobileMenu();
-});
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
