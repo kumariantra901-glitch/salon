@@ -1,16 +1,17 @@
 :root{
-  --bg: #FAF5EF;
-  --bg-soft: #F3ECE3;
-  --ink: #26191D;
-  --ink-soft: #6B5A5E;
-  --blush: #E8B4B8;
-  --blush-deep: #D89AA0;
-  --bone: #DDD4C7;
-  --wine: #6B2737;
-  --wine-deep: #521E2B;
+  --bg: #F7F1E7;
+  --bg-soft: #EEE4D3;
+  --ink: #211512;
+  --ink-soft: #6E5B50;
+  --blush: #C9A98C;
+  --blush-deep: #B08D57;
+  --bone: #D8CBB4;
+  --wine: #7A2331;
+  --wine-deep: #4F1620;
   --sage: #7C8B6F;
   --line: rgba(38,25,29,0.14);
   --radius: 22px;
+}
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
